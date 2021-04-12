@@ -1,0 +1,145 @@
+session_config:
+  session_expiration_time: 10
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- restaurant_search
+- emailID
+- negate
+- greet
+- food_request
+- goodbye
+- stop
+entities:
+- cuisine
+- email_id
+- location
+- price_avg
+- price_one
+- price_range
+- price_two
+slots:
+  check_cuis:
+    type: bool
+    
+  check_loc:
+    type: bool
+    
+  cuisine:
+    type: text
+    
+  email_id:
+    type: text
+    
+  location:
+    type: text
+    
+  price_one:
+    type: float
+    
+  price_range:
+    type: text
+    
+  price_two:
+    type: float
+    
+  restaurent_list:
+    type: text
+    
+actions:
+- action_mail
+- action_search_restaurants
+- check_cuisine
+- check_location
+- price_category
+- utter_ask_cuisine
+- utter_ask_emailid
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_price
+- utter_ask_want_mail
+- utter_cuisine_unknown
+- utter_default
+- utter_dont_operate
+- utter_enter_city
+- utter_food_request
+- utter_goodbye
+- utter_greet
+- utter_mailed
+- utter_search_again
+templates:
+  utter_greet:
+  - text: Hey there! How can I help you?
+  - text: Hi, how can I help?
+  - text: Hey, how is it going? How may I help you today?
+  utter_food_request:
+  - text: Can I help you find some restaurants?
+  - text: Shall I help you look for a restaurant?
+  utter_ask_location:
+  - text: In what location?
+  - text: In which city?
+
+  utter_enter_city:
+  - text: Could you please enter the name of the city in which you're looking for restaurants?
+  - text: Please enter the name of a city.
+  utter_dont_operate:
+  - text: I'm sorry, but we don't operate in that location.
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: Italian
+      title: Italian
+    - payload: American
+      title: American
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: What kind of cuisine would you like?
+  utter_cuisine_unknown:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: Italian
+      title: Italian
+    - payload: American
+      title: American
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: I'm sorry, but we only serve these cuisines. Please select one of these cuisines.
+  utter_ask_price:
+  - buttons:
+    - payload: low
+      title: Lesser than Rs. 300
+    - payload: mid
+      title: Between Rs. 300 and Rs. 700
+    - payload: high
+      title: More than Rs. 700
+    text: What price range are you looking at? (displayed values are for two people)
+  
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_want_mail:
+  - text: Shall I email the details of these restaurants to you?
+  utter_ask_emailid:
+  - text: What's your email ID?
+  - text: Which email ID shall I send these details to?
+  utter_mailed:
+  - text: I've mailed them to you.
+  utter_search_again:
+  - text: Would you like to look for more restaurants?
+  - text: Are you looking for any other types of restaurants?
+  utter_default:
+  - text: I don't understand
+  utter_goodbye:
+  - text: Goodbye!
+  - text: Bye-bye!
+  - text: Have a nice day! Bye!
+version: '2.0'
